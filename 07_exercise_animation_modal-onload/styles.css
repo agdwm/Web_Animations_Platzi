@@ -1,0 +1,117 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('alexa-williams-YwBX02K60A4-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+.modal {
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 0.5em;
+  padding: 2em;
+  /* animation: name time state; */
+  animation: modalIn 0.8s forwards;
+  text-align: center;
+  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-button--hide {
+  text-align: center;
+  background-color: antiquewhite;
+  padding: 0.8em 0.4em 0 0.4em;
+  border: none;
+  color: #222222;
+  margin: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 -0.1em rgba(0, 0, 0, 0.1);
+  outline: 0;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+.modal-button--hide:hover {
+  background-color: #feecd3;
+}
+
+.modal-button--hide:active {
+  transform: scale(0.9);
+}
+
+.modal-button--hide span {
+  padding: 0.8em;
+}
+
+.modal-button--hide span:last-child {
+  transform: rotate(90deg);
+  display: block;
+  font-weight: 600;
+  text-align: center;
+}
+
+.background-image {
+  max-width: 100%;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 1.1s ease-in;
+}
+
+.overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes modalIn {
+  0% {
+    transform: translateY(-3000px);
+  }
+
+  60% {
+    transform: translateY(25px);
+  }
+
+  75% {
+    transform: translateY(-10px);
+  }
+
+  90% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes modalOut {
+  0% {
+    transform: translateY(5px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+
+  75% {
+    transform: translateY(25px);
+  }
+
+  100% {
+    transform: translateY(-3000px);
+  }
+}

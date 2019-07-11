@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  perspective: 500px;
+  perspective-origin: top left;
+}
+.container {
+  border: 1px solid red;
+}
+/* cuadrado:hover.
+Mala practica aplicar la animación sobre el hover del mismo elemento que queremos animar.
+Mejor hacerlo sobre un elemento padre*/
+.container:hover .cuadrado {
+  /* transform: translateY(100px); */
+  transform: translate3d(100px, 100px, 100px);
+}
+
+.cuadrado {
+  width: 200px;
+  height: 200px;
+  background-color: #7dc900;
+  margin: 20px;
+  transition: 0.3s;
+}

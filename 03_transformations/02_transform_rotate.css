@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  border: 1px solid red;
+}
+/* cuadrado:hover.
+Mala practica aplicar la animación sobre el hover del mismo elemento que recibe la animación*/
+.container:hover .cuadrado {
+  /* transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg); */
+  /* transform: rotate3d(x, y, z, degrees) */
+  /* transform: rotate3d(0, 0, 1, 45deg); */
+  transform: rotateZ(-45deg);
+  /* transform-origin: right top; */
+  transform-origin: 100% 0;
+}
+
+.cuadrado {
+  width: 200px;
+  height: 200px;
+  background-color: #7dc900;
+  margin: 20px;
+  transition: 0.3s;
+}
