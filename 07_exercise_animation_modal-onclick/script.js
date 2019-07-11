@@ -1,4 +1,5 @@
 const $hideButtons = document.getElementsByClassName('hide-modal');
+const $closeButton = document.getElementById('close-modal');
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
 const $showButton = document.getElementById('trigger-modal');
@@ -30,6 +31,12 @@ $showButton.addEventListener('click', e => {
   disableButton($showButton);
   showModal($modal);
   showOverlay($overlay);
+});
+
+$closeButton.addEventListener('click', e => {
+  e.preventDefault();
+  hideModal($modal);
+  hideOverlay($overlay);
 });
 
 for (let el of $hideButtons) {
