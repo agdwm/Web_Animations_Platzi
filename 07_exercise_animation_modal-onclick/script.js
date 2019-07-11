@@ -5,7 +5,6 @@ const $showButton = document.getElementById('trigger-modal');
 
 
 const disableButton = (btn) => {
-  console.log(btn)
   btn.classList.add('is-hidden')
 }
 
@@ -18,26 +17,31 @@ const hideModal = (modal) => {
   modal.style.animation = 'modalOut .8s forwards';
 };
 
-const hideOverlay = () => {
-  $overlay.classList.remove('is-active');
+const showOverlay = () => {
+  overlay.classList.add('is-active');
+}
+
+const hideOverlay = (overlay) => {
+  overlay.classList.remove('is-active');
 };
 
 $showButton.addEventListener('click', e => {
   e.preventDefault();
   disableButton($showButton);
   showModal($modal);
+  showOverlay($overlay);
 });
 
 for (let el of $hideButtons) {
   el.addEventListener('click', e => {
     e.preventDefault();
     hideModal($modal);
-    hideOverlay();
+    hideOverlay($overlay);
   });
 }
 
 $overlay.addEventListener('click', e => {
   e.preventDefault();
   hideModal($modal);
-  hideOverlay();
+  hideOverlay($overlay);
 });
