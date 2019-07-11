@@ -17,13 +17,17 @@ body {
   background-color: #ffffff;
   border-radius: 0.5em;
   padding: 2em;
+  visibility: hidden;
   /* animation: name time state; */
-  animation: modalIn 0.8s forwards;
   text-align: center;
   box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
 }
 
-.modal .btn--hide-modal {
+.modal.is-visible {
+  visibility: visible;
+}
+
+.modal-btn--hide {
   text-align: center;
   background-color: antiquewhite;
   padding: 0.8em 0.4em 0 0.4em;
@@ -38,19 +42,19 @@ body {
   will-change: transform;
 }
 
-.modal .btn--hide-modal:hover {
+.modal-btn--hide:hover {
   background-color: #feecd3;
 }
 
-.modal .btn--hide-modal:active {
+.modal-btn--hide:active {
   transform: scale(0.9);
 }
 
-.modal .btn--hide-modal span {
+.modal-btn--hide span {
   padding: 0.8em;
 }
 
-.modal .btn--hide-modal span:last-child {
+.modal-btn--hide span:last-child {
   transform: rotate(90deg);
   display: block;
   font-weight: 600;
@@ -117,6 +121,7 @@ body {
   }
 }
 
+/*
 @keyframes modalOut {
   0% {
     transform: translateY(5px);
@@ -133,4 +138,4 @@ body {
   100% {
     transform: translateY(-3000px);
   }
-}
+} */

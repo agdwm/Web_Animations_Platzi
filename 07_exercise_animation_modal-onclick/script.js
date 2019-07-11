@@ -3,12 +3,13 @@ const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
 const $showButton = document.getElementById('show-modal');
 
-const hideModal = () => {
-  $modal.style.animation = 'modalOut .8s forwards';
-};
-
 const showModal = () => {
   $modal.style.animation = 'modalIn .8s forwards';
+  $modal.classList.add('is-visible');
+};
+
+const hideModal = () => {
+  $modal.style.animation = 'modalOut .8s forwards';
 };
 
 const hideOverlay = () => {
@@ -23,13 +24,13 @@ $showButton.addEventListener('click', e => {
 for (let el of $hideButtons) {
   el.addEventListener('click', e => {
     e.preventDefault();
-    // hideModal();
+    hideModal();
     hideOverlay();
   });
 }
 
 $overlay.addEventListener('click', e => {
   e.preventDefault();
-  // hideModal();
+  hideModal();
   hideOverlay();
 });
