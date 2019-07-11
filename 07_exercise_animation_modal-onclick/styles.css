@@ -61,22 +61,34 @@ body {
   text-align: center;
 }
 
-.btn--show-modal {
-  height: 50px;
-  width: 50px;
+.modal-btn--trigger {
+  padding: .5em;
+  height: 52px;
+  width: 52px;
   background-color: #ffffff;
   border-radius: 50%;
   position: fixed;
   top: 50px;
   left: 50px;
   z-index: 2;
-  font-size: 24px;
+  font-size: 12px;
   cursor: pointer;
   outline: 0;
+  text-transform: uppercase;
+
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.8s ease;
 }
 
-.btn--show-modal:active {
+.modal-btn--trigger:active {
   transform: scale(0.9);
+}
+
+.modal-btn--trigger.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.8s, opacity 0.8s ease;
 }
 
 .background-image {
@@ -121,7 +133,7 @@ body {
   }
 }
 
-/*
+
 @keyframes modalOut {
   0% {
     transform: translateY(5px);
@@ -138,4 +150,4 @@ body {
   100% {
     transform: translateY(-3000px);
   }
-} */
+}
