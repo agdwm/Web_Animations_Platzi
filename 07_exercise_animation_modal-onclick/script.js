@@ -5,8 +5,9 @@ const $overlay = document.getElementById('overlay');
 const $showButton = document.getElementById('trigger-modal');
 
 
-const disableButton = (btn) => {
-  btn.classList.add('is-hidden')
+const toggleButton = (btn) => {
+  console.log('tooglebutton')
+  btn.classList.toggle('is-hidden')
 }
 
 const showModal = (modal) => {
@@ -28,13 +29,14 @@ const hideOverlay = (overlay) => {
 
 $showButton.addEventListener('click', e => {
   e.preventDefault();
-  disableButton($showButton);
+  toggleButton($showButton);
   showModal($modal);
   showOverlay($overlay);
 });
 
 $closeButton.addEventListener('click', e => {
   e.preventDefault();
+  toggleButton($showButton);
   hideModal($modal);
   hideOverlay($overlay);
 });
@@ -42,6 +44,7 @@ $closeButton.addEventListener('click', e => {
 for (let el of $hideButtons) {
   el.addEventListener('click', e => {
     e.preventDefault();
+    toggleButton($showButton);
     hideModal($modal);
     hideOverlay($overlay);
   });
