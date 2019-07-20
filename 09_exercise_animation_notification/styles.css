@@ -59,21 +59,71 @@ body {
   display: block;
   font-weight: 900;
   font-size: 1em;
+  transform-origin: center top;
+}
+
+.notification.is-active:before {
+  animation-name: bell;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .notification:after {
-  content: '1';
-  font-size: 12px;
+  content: attr(data-count);
+  opacity: 0;
+  font-size: 11px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #ff463b;
   border-radius: 50%;
-  min-width: 16px;
-  height: 16px;
-  line-height: 17px;
+  min-width: 14px;
+  height: 14px;
+  line-height: 13px;
   position: absolute;
-  top: 12px;
-  right: 5px;
+  top: 15px;
+  right: 8px;
+  will-change: opacity;
+  transition: .3s;
+  transform: scale(.5);
+}
+
+.notification.show-count:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes bell {
+  0% {
+    transform: rotate(35deg);
+  }
+
+  12.5% {
+    transform: rotate(-30deg);
+  }
+
+  25% {
+    transform: rotate(25deg);
+  }
+
+  37.5% {
+    transform: rotate(-20deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  62.5% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
 }
