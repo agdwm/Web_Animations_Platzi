@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import acustica from '../images/invie-acustica.png';
-import classic from '../images/invie-classic.png';
 
 class Guitarras extends Component {
   render() {
+    const { guitarras } = this.props;
     return (
       <section id='guitarras' className='guitarras contenedor'>
         <h2>Nuestra guitarras</h2>
@@ -22,39 +21,26 @@ class Guitarras extends Component {
             </div>
           </div>
         </div>
-        {/* <video src="video/320x240.ogg"></video> */}
-        <article className='guitarra'>
-          <img
-            className='derecha'
-            src={`${acustica}`}
-            alt='Guitarra Invie Acustica'
-            width='350'
-          />
-          <div className='contenedor-guitarra-a'>
-            <h3 className='title-b'>Invie Acustica</h3>
-            <ol>
-              <li>Estilo vintage</li>
-              <li>Madera pura</li>
-              <li>Incluye estuche invisible de aluminio</li>
-            </ol>
-          </div>
-        </article>
-        <article className='guitarra b'>
-          <img
-            className='izquierda'
-            src={`${classic}`}
-            alt='Guitarra Invie Classic'
-            width='350'
-          />
-          <div className='contenedor-guitarra-b'>
-            <h3 className='title-b'>Invie Classic</h3>
-            <ol>
-              <li>Estilo vintage</li>
-              <li>Liviana</li>
-              <li>Inicia tu camino como Rockstar</li>
-            </ol>
-          </div>
-        </article>
+        {guitarras.map((guitarra, i) => {
+          return (
+            <article className='guitarra' key={i}>
+              <img
+                className='guitarra-image'
+                src={guitarra.image}
+                alt={guitarra.alt}
+                width='350'
+              />
+              <div className='contenedor-guitarra'>
+                <h3 className='guitarra-name'>{guitarra.name}</h3>
+                <ol>
+                  {guitarra.features.map((feature, i) => (
+                    <li key={i}>{feature}</li>
+                  ))}
+                </ol>
+              </div>
+            </article>
+          );
+        })}
       </section>
     );
   }

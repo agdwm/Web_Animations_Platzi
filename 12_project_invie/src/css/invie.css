@@ -44,25 +44,6 @@
 }
 
 
-
-/** {
-  width: tamaño;
-  height: tamaño;
-  padding: 10px;
-  padding-top: 10px;
-  padding-right: 13px;
-  padding-left: 15px;
-  padding-bottom: 5px;
-  padding: 10px 13px 5px 15px;
-  margin: 10px;
-  margin-top: 10px;
-  margin-right: 13px;
-  margin-left: 15px;
-  margin-bottom: 5px;
-  margin: 10px 13px 5px 15px;
-  border: 2px solid red;
-}*/
-
 body {
   font-family: 'Allerta', sans-serif;
   margin: 0;
@@ -132,7 +113,6 @@ textarea:focus {
   background: -webkit-linear-gradient(top,  rgba(243,197,189,1) 0%,rgba(232,108,87,1) 50%,rgba(234,40,3,1) 51%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%);
   background: linear-gradient(to bottom,  rgba(243,197,189,1) 0%,rgba(232,108,87,1) 50%,rgba(234,40,3,1) 51%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3c5bd', endColorstr='#c72200',GradientType=0 ); */
-
 }
 
 .titulo {
@@ -166,10 +146,7 @@ textarea:focus {
   font-size: 35px;
 }
 
-
-
 .portada {
-
   color: white;
   padding: 20px;
   height: 500px;
@@ -209,33 +186,60 @@ textarea:focus {
   margin-left: 0;
 }
 
-
 .guitarra {
-  margin: 10px 10px 40px 10px;
-  padding: 10px;
+  margin: 10px 0 40px 10px;
+  padding: 10px 2em;
   /*overflow: hidden;*/
   border: 1px solid #1F313C;
-  border-radius: 8px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  min-height: 15.625rem;
+  transition: .3s;
+  position: relative;
+}
+
+.guitarra:hover {
+  /* box-shadow: x y blur color; */
+  box-shadow: 8px 8px 0 #ff3149;
+}
+
+.guitarra-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.guitarra-name {
+  font-size: 3em;
+  margin: 0 0 .2em;
+  padding-bottom: .2em;
+  border-bottom: 2px dashed #1e313d;
 }
 
 .guitarra ol {
   padding: 0;
+  list-style: none;
+  /* cada ol va a resetear el contador */
+  counter-reset: features;
 }
 
-.guitarra.b {
-  height: 190px;
+.guitarra li:before {
+  counter-increment: features;
+  content: counter(features) ". ";
 }
 
-
-.derecha {
-  float: right;
-  position: relative;
-  top: -127px;
+.guitarra:nth-of-type(even) {
+  justify-content: flex-end;
 }
 
-.izquierda {
-  float: left;
-  position: relative;
+.guitarra:nth-of-type(even) .guitarra-image {
+  left: 0;
+  right: initial;
+}
+
+.guitarra:nth-of-type(even):hover {
+  box-shadow: -8px 8px 0 #000000;
 }
 
 .contenedor-guitarra-a {
@@ -252,7 +256,6 @@ textarea:focus {
 .header {
   position: relative;
 }
-
 
 .footer {
   background: #273b47;
@@ -280,19 +283,16 @@ textarea:focus {
   margin: 10px 10px 10px 0;
 }
 
-
 .footer .contenedor {
   display: flex;
   justify-content: space-between;
 }
-
 
 .formulario {
   display: flex;
   width: 400px;
   color: white;
 }
-
 
 .col1,
 .col2 {
@@ -322,16 +322,13 @@ textarea:focus {
   margin-bottom: 10px;
 }
 
-
 .sexo {
   margin-top: 10px;
 }
 
-
 .tabla {
   margin: 50px 0;
 }
-
 
 .burguer-button {
   width: 40px;
@@ -363,15 +360,6 @@ textarea:focus {
 }
 
 @media screen and (max-width: 800px) {
-  /*body {
-    border: 10px solid red;
-  }*/
-  /*.contenedor {
-    width: auto;
-    max-width: 800px;
-  }*/
-
-  /* precios */
   .tabla {
     margin: 50px 20px;
   }
@@ -381,8 +369,6 @@ textarea:focus {
     border: 1px solid #273b47;
   }
 
-  /* precios */
-  /* portada */
   .titulo {
     font-size: 45px;
     margin-top: 30px;
@@ -401,10 +387,6 @@ textarea:focus {
     display: inline-block;
   }
 
-  /* portada */
-
-
-  /* guitarras */
   .video-demo-contenedor {
     margin-bottom: 30px;
   }
@@ -440,11 +422,36 @@ textarea:focus {
     padding: 0;
   }
 
-  /* guitarras */
 
+  video {
+    width: 100%;
+  }
+
+
+  .video-responsive-contenedor {
+    position: relative;
+    padding-top: 56.25%;
+  }
+
+  .video-responsive-src {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .guitarra {
+    flex-direction: column;
+  }
+
+  .guitarra-image {
+    position: static;
+  }
 
   /* footer */
   .footer .contenedor {
@@ -518,7 +525,6 @@ textarea:focus {
   /* guitarras */
 
 }
-
 
 @media screen and (max-width: 500px) {
 
@@ -622,28 +628,6 @@ textarea:focus {
   /* footer */
 
 }
-
-
-video {
-  width: 100%;
-}
-
-
-.video-responsive-contenedor {
-  position: relative;
-  padding-top: 56.25%;
-}
-
-.video-responsive-src {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   .background {

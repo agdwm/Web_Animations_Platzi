@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import logo from '../images/invie.png';
-import logo2x from '../images/invie2x.png';
 
 class Portada extends Component {
   render() {
+    const { menu, logoPortada, logoPortada2x } = this.props;
     return (
       <section id='portada' className='portada background'>
         <header id='header' className='header contenedor'>
           <figure className='logotipo'>
             <img
-              src={logo}
-              srcSet={`${logo} 1x, ${logo2x} 2x`}
+              src={logoPortada}
+              srcSet={`${logoPortada} 1x, ${logoPortada2x} 2x`}
               width='186'
               height='60'
               alt='Invie logotipo'
@@ -19,15 +18,13 @@ class Portada extends Component {
           <span className='burguer-button icon-menu' id='burguer-button' />
           <nav className='menu' id='menu'>
             <ul>
-              <li>
-                <a href='index.html'>Home</a>
-              </li>
-              <li>
-                <a href='#guitarras'>Guitarras</a>
-              </li>
-              <li>
-                <a href='precios.html'>Precios</a>
-              </li>
+              {menu.map((item, i) => {
+                return (
+                  <li href={item.href} key={i}>
+                    {item.title}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </header>
