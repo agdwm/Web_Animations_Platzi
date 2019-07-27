@@ -34,8 +34,9 @@ class Guitarras extends Component {
             <article className='guitarra' key={i}>
               <div className='guitarra-image-wrapper'>
                 <CSSTransitionGroup
+                  // Para que funcione CSSTransitionGroup debe haber un key
+                  // React elimina del DOM los elementos que se están animando, transcurridos .5s
                   transitionName='flicker'
-                  // React elimina los elementos que se están animando, transcurridos .5s
                   transitionEnterTimeout={500}
                   transitionLeaveTimeout={500}
                 >
@@ -48,14 +49,20 @@ class Guitarras extends Component {
                   />
                 </CSSTransitionGroup>
               </div>
-              <div className='contenedor-guitarra'>
-                <h3 className='guitarra-name'>{guitarra.name}</h3>
-                <ol>
-                  {guitarra.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ol>
-              </div>
+              <CSSTransitionGroup
+                transitionName='fade'
+                transitionEnterTimeout={300}
+                transitionLeave={false}
+              >
+                <div className='contenedor-guitarra' key={guitarra.name}>
+                  <h3 className='guitarra-name'>{guitarra.name}</h3>
+                  <ol>
+                    {guitarra.features.map((feature, i) => (
+                      <li key={i}>{feature}</li>
+                    ))}
+                  </ol>
+                </div>
+              </CSSTransitionGroup>
             </article>
           );
         })}
