@@ -21,7 +21,6 @@ class Portada extends Component {
           <figure className='logotipo'>
             <img
               src={logoPortada}
-              srcSet={`${logoPortada} 1x, ${logoPortada2x} 2x`}
               width='186'
               height='60'
               alt='Invie logotipo'

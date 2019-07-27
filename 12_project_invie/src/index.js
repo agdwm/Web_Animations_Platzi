@@ -10,7 +10,8 @@ import './css/invie.css';
 import './css/animations.css';
 
 import logoPortada from './images/invie.png';
-import logoPortada2x from './images/invie2x.png';
+import logoPlatzi from './images/platzi.png';
+
 import acustica from './images/invie-acustica.png';
 import classic from './images/invie-classic.png';
 
@@ -25,7 +26,6 @@ const initialState = {
     { href: 'precios.html', title: 'Precios' }
   ],
   logoPortada: logoPortada,
-  logoPortada2x: logoPortada2x,
   guitarras: [
     {
       image: acustica,
@@ -62,12 +62,8 @@ const store = createStore(reducer, initialState);
 
 const easter = {
   isAnimated: 'is-animated',
-  menu: [
-    {
-      href: 'index.html',
-      title: 'Home'
-    }
-  ],
+  menu: [],
+  logoPortada: logoPlatzi,
   guitarras: [
     {
       image: easterA,
