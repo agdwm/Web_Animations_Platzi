@@ -34,7 +34,7 @@ class Guitarras extends Component {
             <article className='guitarra' key={i}>
               <div className='guitarra-image-wrapper'>
                 <CSSTransitionGroup
-                  // Para que funcione CSSTransitionGroup debe haber un key
+                  // Para que funcione CSSTransitionGroup debe haber un key dentro
                   // React elimina del DOM los elementos que se están animando, transcurridos .5s
                   transitionName='flicker'
                   transitionEnterTimeout={500}

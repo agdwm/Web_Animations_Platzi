@@ -18,6 +18,7 @@ import easterA from './images/easter-a.png';
 import easterB from './images/easter-b.png';
 
 const initialState = {
+  isAnimated: false,
   menu: [
     { href: 'index.html', title: 'Home' },
     { href: '#guitarras', title: 'Guitarras' },
@@ -60,6 +61,7 @@ const reducer = (state, action) => {
 const store = createStore(reducer, initialState);
 
 const easter = {
+  isAnimated: 'is-animated',
   menu: [
     {
       href: 'index.html',

@@ -1,4 +1,4 @@
-/* Flicker Animation */
+/* FLICKER Animation */
 .flicker {}
 
 .flicker-enter {
@@ -16,32 +16,6 @@
 }
 
 .flicker-leave-active {}
-
-/* Fade Animation */
-.fade {}
-
-.fade-enter {
-  opacity: 0;
-  transform: scale(.5);
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: .3s;
-}
-
-.fade-leave {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.fade-leave-active {
-  opacity: 0;
-  transform: scale(.5);
-  transition: .3s;
-}
-
 
 @keyframes flicker {
   from {
@@ -194,4 +168,74 @@
 
 }
 
-@keyframes fade {}
+/* FADE Animation */
+.fade {}
+
+.fade-enter {
+  opacity: 0;
+  transform: scale(.5);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: .3s;
+}
+
+.fade-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-leave-active {
+  opacity: 0;
+  transform: scale(.5);
+  transition: .3s;
+}
+
+
+/* AnimationIn & AnimationOut */
+
+.animationInOut-enter {
+  animation: animationIn .8s;
+}
+
+.animationInOut-leave {
+  animation: animationOut .8s;
+}
+
+@keyframes animationIn {
+  0% {
+    transform: translateY(-3000px);
+  }
+
+  60% {
+    transform: translateY(25px);
+  }
+
+  75% {
+    transform: translateY(-10px);
+  }
+
+  900% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes animationOut {
+  0% {
+    transform: translateY(5px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+
+  75% {
+    transform: translateY(25px);
+  }
+
+  100% {
+    transform: translateY(-3000px);
+  }
+}
