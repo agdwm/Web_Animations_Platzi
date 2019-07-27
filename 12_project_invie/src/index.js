@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Invie from './Invie';
-import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import cheet from 'cheet.js';
+
+import * as serviceWorker from './serviceWorker';
+import Invie from './Invie';
+import './css/invie.css';
+import './css/animations.css';
+
 import logoPortada from './images/invie.png';
 import logoPortada2x from './images/invie2x.png';
 import acustica from './images/invie-acustica.png';
 import classic from './images/invie-classic.png';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+
+import easterA from './images/easter-a.png';
+import easterB from './images/easter-b.png';
 
 const initialState = {
   menu: [
@@ -58,6 +64,24 @@ const easter = {
     {
       href: 'index.html',
       title: 'Home'
+    }
+  ],
+  guitarras: [
+    {
+      image: easterA,
+      alt: 'Guitarra padre de familia',
+      name: 'Invie Familiar',
+      features: [
+        'Lista para copiar a los Simpsons',
+        'Aire puro',
+        'Chistes malos'
+      ]
+    },
+    {
+      image: easterB,
+      alt: 'Guitarra Invie Classic',
+      name: 'Invie Classic',
+      features: ['Estilo vintage', 'Liviana', 'Inicia tu camino como Rockstar']
     }
   ]
 };

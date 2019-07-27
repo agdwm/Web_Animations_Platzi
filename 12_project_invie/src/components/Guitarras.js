@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 const mapStateToProps = state => {
   return {
@@ -31,12 +32,22 @@ class Guitarras extends Component {
         {guitarras.map((guitarra, i) => {
           return (
             <article className='guitarra' key={i}>
-              <img
-                className='guitarra-image'
-                src={guitarra.image}
-                alt={guitarra.alt}
-                width='350'
-              />
+              <div className='guitarra-image-wrapper'>
+                <CSSTransitionGroup
+                  transitionName='flicker'
+                  // React elimina los elementos que se están animando, transcurridos .5s
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={500}
+                >
+                  <img
+                    className='guitarra-image'
+                    src={guitarra.image}
+                    key={guitarra.image}
+                    alt={guitarra.alt}
+                    width='350'
+                  />
+                </CSSTransitionGroup>
+              </div>
               <div className='contenedor-guitarra'>
                 <h3 className='guitarra-name'>{guitarra.name}</h3>
                 <ol>
