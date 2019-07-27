@@ -14,8 +14,9 @@ const mapStateToProps = state => {
 class Portada extends Component {
   render() {
     const { menu, logoPortada, logoPortada2x } = this.props;
+    const isAnimated = this.props.isAnimated || '';
     return (
-      <section id='portada' className='portada background'>
+      <section id='portada' className={`portada background ${isAnimated}`}>
         <header id='header' className='header contenedor'>
           <figure className='logotipo'>
             <img
